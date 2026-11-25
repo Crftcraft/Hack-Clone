@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+
+typedef struct {
+    const char *name;
+    int min_damage;
+    int max_damage;
+} Attack;
+
+#ifndef MONSTER_H
+#define MONSTER_H
+typedef enum {
+    MONSTER_BLANK,
+    MONSTER_TYPE_COUNT
+} MonsterType;
+
+typedef struct {
+    const char *name; 
+
+    int difficulty;
+    int base_level;
+    int base_xp;
+    int speed;
+    int base_ac;
+    int base_mr;
+    int alignment;
+    bool genocidable;
+    int weight;
+    int nutrition;
+    int size;
+    int resistances;
+    int res_conveyed;
+    Attack *attacks;
+    int attack_count;
+} MonsterDefinition;
+
+typedef struct {
+    MonsterType type;
+
+    int x;
+    int y;
+
+    int level;
+    int health;
+
+    int difficulty;
+    int base_level;
+    int base_xp;
+    int speed;
+    int base_ac;
+    int base_mr;
+    int alignment;
+    bool genocidable;
+    int weight;
+    int nutrition;
+    int size;
+    int resistances;
+    int res_conveyed;
+} Monster;
+#endif
+
+int calculate_monster_level(int base_level, int level_depth, int player_level);
