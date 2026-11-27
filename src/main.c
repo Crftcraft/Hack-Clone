@@ -5,6 +5,9 @@
 
 int main() {
 initialize();
+entityList screen = {0, (WIDTH * HEIGHT)};
+prtscrn(screen);
+getch();
 endwin();
 return 0;
 }
